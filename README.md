@@ -6,11 +6,6 @@ This was a final project for Systems Programming course.
 Credits: Robert Smith, CSCI2122 Course Head TA who designed the labs and content for the README.md file.
 
 
-Table of Contents
-===============================
-
-[[_TOC_]]
-
 The Land of Trebor
 ==================
 
