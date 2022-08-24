@@ -1,62 +1,15 @@
 Introduction
 ============
 
-This final lab is designed for you to create a program which can utilize
-some past data structures to help the adventurers of the land of Trebor
-become famed and experienced heroes.
+This was a final project for Systems Programming course.
 
-In this lab you are expected to perform the basics of cloning your Lab
-10 repository from the GitLab course group. A link to the course group
-can be found
-[here](https://git.cs.dal.ca/courses/2022-winter/csci-2122)
-and your repository can be found in the Lab10 subgroup. See the Lab
-Technical Document for more information on using git. You will notice
-that your repository has a file in the **Lab10** directory named
-**delete\_this\_file**. Due to the limitations of GitLab, we are not
-able to push completely empty directories. Before you push your work to
-your repository (which should be in the **Lab10** directory anyway),
-make sure to first use the **git rm** command to remove the extra file.
-If you do not, your pipeline could fail.
+Credits: Robert Smith, CSCI2122 Course Head TA who designed the labs and content for the README.md file.
 
-**Be sure to read this entire document before starting!**
 
 Table of Contents
 ===============================
 
 [[_TOC_]]
-
-Foreword
-========
-
-In this lab you will be writing several program contracts, although
-those contracts are much less structured than in previous labs. You are
-free to write your code however you'd like, although you are still
-required to adhere to the checklist found in the [Submission](#submission) 
-section of this document. We recommend you look that over before you start 
-coding so you know which requirements do exist.
-
-While we do not have specific function requirements in the form of
-function contracts, we do expect you to adhere to good code design:
-
-1.  Include as many comments as necessary to make your code easy to
-    understand.
-2.  Create reasonably modular code and make functions for things you do
-    repeatedly (initializations, common data manipulations, etc.).
-3.  Split your code into multiple C source/header files and use a
-    Makefile to compile them all together. Don't put all of your code
-    into one giant file. This is inefficient and messy and you are
-    likely to lose points if you do so.
-4.  Remember that debugging tools can help you create better code by
-    pointing out memory leaks or invalid reads/writes. Use them often to
-    produce better code.
-
-At the end of this lab you will be tasked with creating your own GitLab
-pipeline scripts. You may find it easier to make these as you are coding
-so you can stay on top of each thing you plan on testing. Feel free to
-look at the GitLab pipeline scripts included in the previous labs (the
-*.gitlab-ci.yml* file and the scripts in the *CI* directories). We will
-briefly go through the anatomy of a pipeline job script in the
-[Pipeline Scripts](#pipeline-scripts) section.
 
 The Land of Trebor
 ==================
@@ -421,8 +374,6 @@ script is stored in the root of your repository and must be named
 can be seen here:
 
 ```python
-# Robert Smith -- Check Lab 8 Code Outputs
-
 stages:
 	- setup
 	- build
@@ -576,26 +527,6 @@ also find it useful to check those script files to see how the
 comparison is performed. Lab 8's Birthday contract specifically compares
 story files and may be a good reference.
 
-Lab 10 Function Contracts
-=========================
-
-In this lab you will be responsible for fulfilling two lab contracts:
-the **Adventure** contract and the **Deus Ex** contract. Each contract
-is designed to test you on some of the things you've learned throughout
-the instruction portion of this lab.
-
-For those of you who are concerned, when deciding which naming
-conventions you want to use in your code, favour consistency in style,
-not dedication to a style that doesn't work.
-
-The contracts in this document are worth the following points values,
-for a total of 10.
-
-| Contract  | Points |
-| ------    | ------ |
-| Adventure | 6      |
-| Deus Ex   | 4      |
-| **Total** | **10** |
 
 Adventure
 ---------
@@ -785,27 +716,6 @@ point values, your outputs may be slightly different, but still valid.
 
 Unlike the Adventure contract, you do not have to time this result.
 
-### Restrictions
-
-None.
-
-### File Requirements
-
-Your header files should contain your forward declarations, struct
-definitions and typedefs, as well as any library imports (includes) you
-may need. Always protect your headers with a define guard. **You will
-need to write a main function for each program you provide**, as well as
-a Makefile which successfully compiles all of your code. We recommend
-setting up a single C source file for holding your main function. This
-is useful for testing, as it means you can have multiple main function
-files and can adjust your Makefile to compile whichever ones you'd like.
-You are also required to provide a .gitlab-ci.yml file so your code is
-properly tested in a pipeline of your own design.
-
-Your source files, header files, and makefile should be placed in the
-**Lab10/deusex/** directory in your GitLab repository. Also be sure to
-include any libraries you need from previous labs or solutions.
-
 ### Testing
 
 To test your code, you should create a pipeline file. Create any
@@ -817,116 +727,3 @@ executable and .o files exist (library .o files do not need to be
 checked). If successful, execute your programs, being careful to store
 any outputs in new files, then run your comparisons against expected
 output. If your comparisons are successful, your pipeline should pass.
-
-### Sample Inputs and Outputs
-
-None.
-
-Submission
-==========
-
-Marking Method
---------------
-
-Unlike previous labs, this lab will be marked by human markers, and thus
-it is possible for you to receive partial points, as outlined below.
-
-Required Files
---------------
-
-Each file must be contained in the directory listed in the structure
-requirement diagram below. These files include:
-
-1.  Makefile (for adventure)
-2.  Makefile (for deusex)
-
-**These files are the minimum required and will not be tested for with a
-script, but if they do not exist you will receive a 0**. You may submit
-other files that your Makefile needs to function correctly. Any
-additional files will not count against you. Be careful with what you
-upload, as it could cause issues with your pipeline (such as hiding
-changes from your Makefile). You should try your best to only push the
-files your program needs to compile and execute.
-
-Submission Procedure and Expectations
--------------------------------------
-
-Your code will be submitted to your Lab 10 GitLab repository using the
-same method as outlined in the Lab Technical Document. Refer to that
-document if you do not remember how to submit files via the GitLab
-service. A link to your repository can be found in the **Lab10**
-subgroup of the CSCI 2122 GitLab group
-[here](https://git.cs.dal.ca/courses/2022-winter/csci-2122).
-
-Submission Structure
---------------------
-
-In order for a submission to be considered valid, and thus gradable,
-your git repository must contain directories and files in the following
-structure:
-
-```
-Lab10/
- ┣ adventure/
- ┃  ┗ Makefile
- ┗ deusex/
-    ┗ Makefile
-```
-
-As with all labs, accuracy is incredibly important. When submitting any
-code for labs in this class, you *must* adhere to the directory
-structure and naming requirements in the above diagram. Failure to do so
-will yield a mark of 0. That said, in this lab, your directory structure
-requirement is to *minimally* have these files, but you may have more as
-you require.
-
-Remember to remove **Lab10/delete\_this\_file** from your repository
-using **git rm** to avoid any pipeline failures.
-
-Marks
------
-
-This lab is marked out of 10 points. All of the marks in this lab are
-based on the successful execution of each contract. Any marking pipeline
-failures of a given contract will result in a mark of 0 for that
-contract. Successful completion of the various contracts will award
-points based on the following table:
-
-| Contract  | Points |
-| ------    | ------ |
-| Adventure | 6      |
-| Deus Ex   | 4      |
-| **Total** | **10** |
-
-Since this lab has an open requirement for code, the marks for each
-section are found below. Each mark builds on the previous (even across
-contracts), meaning that you will only receive marks in order from 
-top-to-bottom until a requirement is not met, at which point the marking 
-for the current contract will stop.
-
-### Adventure (6 points)
-
-1.  Create a working Makefile (0.25 points)
-2.  Read in Hero and Location data (0.25 points)
-3.  Generate all required paths (0.5 points)
-4.  Complete at least one path without threads (0.5 points) **OR**
-    Complete all paths with threads (2 points)
-5.  Produce all required output files and times for all paths (2 points)
-6.  Properly evaluate (fully) completed code with a pipeline script (1
-    point)
-
-### Deus Ex (4 points)
-
-1.  Create a copy of the Adventure code for modification (0 points)
-2.  Create a working Makefile (0.25 points)
-3.  Ensure each hero is given the optimal path from the generated list
-    (1 point)
-4.  Execute all adventure paths successfully (1 point)
-5.  Produce required output file for the chosen path (1 point)
-6.  Properly evaluate (fully) completed code with a pipeline script
-    (0.75 points)
-
-**Note: creating a working Makefile means it must actually produce code
-for the subsequent requirements. You will not receive points for a
-Makefile which technically runs, but does not actually produce any
-working code.**
