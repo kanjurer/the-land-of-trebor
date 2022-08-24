@@ -1,0 +1,66 @@
+# Kanav Bhardwaj
+
+stages:
+    - setup
+    - build
+    - test
+
+check-file-structure:
+    stage: setup
+    tags:
+        - ugrad
+    script:
+        - test -d Lab10
+        - test -d Lab10/adventure
+        - test -d Lab10/deusex
+        - test -f Lab10/adventure/Makefile
+        - test -f Lab10/deusex/Makefile
+        - test -f Lab10/adventure/heroes.c
+        - test -f Lab10/adventure/heroes.h
+        - test -f Lab10/adventure/locations.c
+        - test -f Lab10/adventure/locations.h
+        - test -f Lab10/adventure/simulation.c
+        - test -f Lab10/adventure/simulation.h
+
+run-adventure:
+    stage: test
+    tags:
+        - ugrad
+    script:
+        - cd Lab10/adventure/
+        - rm -f locations.o heroes.o simulation.o simulation
+        - make
+        - test -f locations.o 
+        - test -f heroes.o 
+        - test -f simulation.o
+        - test -f simulation
+        - ./simulation 3
+        - test -f level_alive
+        - test -f level_dead
+        - test -f power_alive
+        - test -f power_dead
+        - test -f subtlety_alive
+        - test -f subtlety_dead
+        - test -f strategy_alive
+        - test -f strategy_dead
+        - test -f charm_alive
+        - test -f charm_dead
+        - ../../CI/adventure-compare-expected-files.sh
+    timeout: 45s
+
+run-deusex:
+    stage: test
+    tags:
+        - ugrad
+    script:
+        - cd Lab10/deusex
+        - rm -f locations.o heroes.o simulation.o simulation
+        - make
+        - test -f locations.o 
+        - test -f heroes.o 
+        - test -f simulation.o
+        - test -f deusex
+        - ./deusex 3
+        - test -f deusex_alive
+        - test -f deusex_dead
+        - ../../CI/deusex-compare-expected-files.sh
